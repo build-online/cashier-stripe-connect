@@ -179,9 +179,9 @@ trait ManagesPaymentMethods
      *
      * @return $this
      */
-    public function updateDefaultPaymentMethodFromStripe()
+    public function updateDefaultPaymentMethodFromStripe(array $stripeOptions = [])
     {
-        $defaultPaymentMethod = $this->defaultPaymentMethod();
+        $defaultPaymentMethod = $this->defaultPaymentMethod($stripeOptions);
 
         if ($defaultPaymentMethod && $defaultPaymentMethod instanceof PaymentMethod) {
             $this->fillPaymentMethodDetails(
